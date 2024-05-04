@@ -35,7 +35,7 @@ All of theses models are trained for Time trail race on re:Invent 2018 track in 
 After some trial and error my first working model was model3. It used [PPO](https://huggingface.co/blog/deep-rl-ppo) algorithm. It used continuous action space.
 This reward function is designed to guide an agent in a simulated track environment by providing rewards and penalties based on its behavior. It takes into account parameters like the distance from the center line, steering angle, progress, track adherence, and speed. The agent is rewarded for staying close to the center line, with higher rewards for closer distances. It's penalized for excessive steering and rewarded for making progress and staying on the track. Additionally, maintaining a high speed is incentivized. By balancing these factors, the function aims to encourage the agent to navigate the track effectively, avoiding collisions and completing laps efficiently.
 
-()
+![(model3/model3Eval.png)]
 
 After Evaluation this model was completeing the 3 laps in 14 sec without going off tack
 ()
