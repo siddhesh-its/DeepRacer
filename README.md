@@ -51,10 +51,10 @@ It used modified reward function of model 3. As evident by the graph the model w
 #### model5
 Model 5 used modified reward function from model3 and thanks to model4, I set the speed more appropriately and finetuned the hyperparameters. As evident in the graphs, the model was completing the track without issue.
 
-()
+![](model5/model5Graph.png)
 
 After Evaluation this model was completeing the 3 laps arround 11 sec without going off tack
-()
+![](model5/model5Eval.png)
 
 #### model7
 The new reward function is notably simpler and more streamlined compared to the old function. It emphasizes specific aspects of the agent's behavior, particularly focusing on track adherence and progress. This function rewards the agent for staying on the track and making progress towards the goal, as indicated by the progress parameter. It also encourages acceleration by providing rewards for increasing speed over time. While it still penalizes excessive steering, this penalty is straightforward and less nuanced compared to the previous function, which had varying levels of penalties based on the steering angle. Moreover, the new function incorporates an initialization step to track the previous speed of the agent, allowing for the determination of speed increases. Overall, the new reward function is designed for simplicity and clarity, prioritizing key aspects of agent behavior to guide it effectively along the track.
@@ -66,10 +66,10 @@ if (speed > self.prev_speed) and (self.prev_speed > 0):
 ```
 
 As clearly seen in this graph, the model is over converged.
-()
+![](model7/model7Graph.png)
 
 It is evident in the evaluation that the model is over converged.
-()
+![](model7/model7Eval.png)
 
 
 #### model8
@@ -77,7 +77,7 @@ This reward function is structured to guide the behavior of an agent navigating 
 
 Within the `reward_function` definition, the function extracts relevant parameters from the provided `params` dictionary. These parameters include the index of the closest waypoint (`wp`), the agent's current speed (`speed`), and a boolean indicating whether all of the agent's wheels are on the track (`all_wheels_on_track`).
 
-()
+![](model8/track.png)
 
 The core logic of the function revolves around the agent's behavior relative to specific sections of the track. If the agent is determined to be on the track (`all_wheels_on_track` is true), the function further examines its position based on the closest waypoint index (`wp`). It checks if the waypoint index falls within predefined ranges (`23-42 or 79-86`), which likely correspond to critical sections of the track. In these sections, if the agent's speed exceeds or equals 2 units, it is rewarded with the `zero_val` minimum reward. This implies that maintaining a minimum speed threshold in these critical sections is crucial for optimizing performance.
 
@@ -97,12 +97,13 @@ In summary, this reward function incentivizes the agent to maintain a minimum sp
 ##### It is also designed in discreet action space with min and max speed pre defined for each angle.
 
 ##### Also this model is not over converged.
-()
-()
+![](model8/model8TraningGraph.png)
+
+![](model8/model8Parameters.png)
 
 After Evaluation this model was completeing the 3 laps 9 sec.
 
-()
+![](model8/model8Eval2.png)
 
 
 ## Source
